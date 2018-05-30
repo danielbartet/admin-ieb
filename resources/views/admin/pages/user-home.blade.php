@@ -26,7 +26,6 @@
 			    <div class="col-lg-4 col-md-5 col-sm-12">
 
 			    	@include('admin.modules.profile-image-box')
-			    	@include('admin.modules.weather.local-weather-card')
 
 			    </div>
 

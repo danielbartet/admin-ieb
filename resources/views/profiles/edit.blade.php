@@ -27,7 +27,7 @@
 						@if (Auth::user()->id == $user->id)
 							@include('admin.partials.return-callouts')
 							@include('admin.modules.profile-image-box-split-bg')
-							@include('admin.forms.edit-profile-form')
+							@include('admin.forms.edit-profile-short-form')
 						@else
 							<p>{{ Lang::get('profile.notYourProfile') }}</p>
 						@endif
@@ -40,7 +40,6 @@
 			    {{-- RIGHT/BOTTOM COLUMN --}}
 			    <div class="col-lg-4 col-md-12 col-sm-12">
 			    	@include('admin.modules.profile-basics')
-			    	@include('admin.modules.profile-about')
 			    </div>
 
 			</div>

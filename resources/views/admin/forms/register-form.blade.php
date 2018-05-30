@@ -25,6 +25,10 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
     </div>
     <div class="form-group has-feedback">
+		{!! Form::label('access_level', Lang::get('profile.showProfileAccessLevel') , array('class' => 'sr-only')); !!}
+		{!! Form::select('access_level', array('1' => 'User', '2' => 'Editor', '3' => 'Administrador'), '1') !!}
+    </div>
+    <div class="form-group has-feedback">
 		{!! Form::label('password', Lang::get('auth.password') , array('class' => 'sr-only')); !!}
 		{!! Form::password('password', array('id' => 'password', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_password'), 'required' => 'required',)) !!}
         <span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>

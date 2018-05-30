@@ -15,7 +15,8 @@ class Profile extends Model {
 		'twitter_username',
 		'github_username',
 		'career_title',
-		'education'
+		'education',
+		'interno'
 	];
 
 	/**

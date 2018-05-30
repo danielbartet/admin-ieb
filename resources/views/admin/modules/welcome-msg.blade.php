@@ -9,10 +9,6 @@
         </div>
     </div>
     <div class="box-body">
-        {{ Lang::get('modules.welcomeMessage',['username' => $user->name] ) }}
-        {!! HTML::link('https://github.com/jeremykenedy/laravel-admin', 'https://github.com/jeremykenedy/laravel-admin', array('target' => '_blank', 'title' => 'View Project on GitHub'), true) !!}
-    </div>
-    <div class="box-footer">
-        {{ Lang::get('modules.welcomeFooter') }}
+        {{ Lang::get('modules.welcomeMessage',['username' => $user->name, 'levelaccess' => $access] ) }}
     </div>
 </div>

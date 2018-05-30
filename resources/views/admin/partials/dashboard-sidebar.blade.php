@@ -31,6 +31,10 @@
                 {!! HTML::icon_link( "/dashboard", 'fa '.Lang::get('sidebar-nav.link_icon_dashboard'), "<span>".Lang::get('sidebar-nav.link_title_dashboard')."</span>", array('title' => Lang::get('sidebar-nav.link_title_dashboard'))) !!}
             </li>
 
+            <li>
+                {!! HTML::icon_link( "/calculadoras", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras'), "<span>".Lang::get('sidebar-nav.link_title_calculadoras')."</span>", array('title' => Lang::get('sidebar-nav.link_title_calculadoras'))) !!}
+            </li>
+
             @if (Auth::user()->profile)
                 <li class="treeview">
                     {!! HTML::icon_link( "/profile/".Auth::user()->name, 'fa '.Lang::get('sidebar-nav.link_icon_profile_top'), "<span>".Lang::get('sidebar-nav.link_title_profile_top')."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => Lang::get('sidebar-nav.link_title_profile_top'))) !!}

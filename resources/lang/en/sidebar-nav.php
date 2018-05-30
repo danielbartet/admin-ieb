@@ -25,6 +25,10 @@ return [
 	'link_title_dashboard'      => 'Dashboard',
 	'link_icon_dashboard'       => 'fa-dashboard',
 
+	// DATA CALCULADORAS LINK
+	'link_title_calculadoras'      => 'Calculadoras',
+	'link_icon_calculadoras'       => 'fa-calculator',
+
 	// USER PROFILE LINKS
 	'link_title_profile_top'    => 'User Profile',
 	'link_icon_profile_top'     => 'fa-user',

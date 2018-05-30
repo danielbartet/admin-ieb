@@ -29,7 +29,7 @@
 			<div class="row">
 
 				{{-- LEFT/TOP COLUMN --}}
-			    <div class="col-lg-4 col-md-5 col-sm-6">
+			    <div class="col-lg-8 col-md-9 col-sm-10">
 			    	{{--
 			    	@include('admin.modules.profile-image-box-split-bg')
 			    	@include('admin.modules.profile-image-box')
@@ -39,11 +39,6 @@
 
 					@include('admin.modules.profile-basics')
 
-			    </div>
-
-			    {{-- RIGHT/BOTTOM COLUMN --}}
-			    <div class="col-lg-8 col-md-7 col-sm-6">
-			    	@include('admin.modules.profile-about')
 			    </div>
 
 			</div>

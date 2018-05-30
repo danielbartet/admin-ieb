@@ -39,8 +39,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'last_name'                     => 'required',
         'email'                         => 'required|email|unique:users',
         'password'                      => 'required|min:6|max:20',
-        'password_confirmation'         => 'required|same:password',
-        'g-recaptcha-response'          => 'required'
+        'password_confirmation'         => 'required|same:password'
     ];
 
     // REGISTRATION ERROR MESSAGES
@@ -53,7 +52,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'password.required'             => 'Password is required',
         'password.min'                  => 'Password needs to have at least 6 characters',
         'password.max'                  => 'Password maximum length is 20 characters',
-        'g-recaptcha-response.required' => 'Captcha is required'
     ];
 
     // ACCOUNT EMAIL ACTIVATION

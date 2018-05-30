@@ -10,8 +10,8 @@ return [
 	*/
 
 	// WELCOME PAGE MODULE
-	"welcomeTitle" 				=> "Welcome to LaraAdmin",
-	"welcomeMessage" 			=> " Hi there :username, thank you for taking the time to setup and use this Laravel Admin project I have built. I hope that you find this helpful and useful. Please star and/or fork this repo at:",
+	"welcomeTitle" 				=> "Welcome to Admin IEB",
+	"welcomeMessage" 			=> " Hi there :username, Your access level is ':levelaccess'. If you need upgrade your access comunicate with Joaquin",
 	"welcomeFooter" 			=> "&copy; 2016 LaraAdmin",
 
 	// TWITTER TIMELINE MODULE

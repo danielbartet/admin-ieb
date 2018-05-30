@@ -49,6 +49,16 @@
 	        </p>
 		@endif
 
+		@if ($user->profile->interno)
+	        <strong>
+	        	<i class="fa fa-phone margin-r-5"></i>
+	        	{{ Lang::get('profile.showProfileInternal') }}
+	        </strong>
+	        <p class="text-muted">
+				{{ $user->profile->interno }}
+	        </p>
+		@endif
+
         <strong>
         	<i class="fa fa-unlock margin-r-5"></i>
         	{{ Lang::get('profile.showProfileAccessLevel') }}

@@ -30,6 +30,7 @@ return [
 	'showProfileGravatar'		=> 'Gravatar',
 	'showProfileEducation'		=> 'Education',
 	'showProfilecareerTitle'	=> 'Occupation',
+	'showProfileInternal'	=> 'Internal',
 
 	// USER PROFILE PAGE
 	'showProfileTitle'			=> ':username\'s Profile',
@@ -43,6 +44,9 @@ return [
 
 	'label-bio'					=> 'Your bio',
 	'ph-bio'					=> 'Enter your bio',
+
+	'label-internal'			=> 'Your internal',
+	'ph-internal'				=> 'Enter your internal',
 
 	'label-github_username'		=> 'Your GitHub User',
 	'ph-github_username'		=> 'Enter your GitHub username',

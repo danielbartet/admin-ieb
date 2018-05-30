@@ -1,6 +1,6 @@
 <footer class="main-footer">
 	<div class="pull-right hidden-xs">
-		<strong>Version</strong> 2.3.0
+		<strong>Daniel Bartet</strong>
 	</div>
-	Copyright &copy; {{ date("Y") }} <a href="{{ URL::to('/') }}">Lara<strong>Admin</strong></a>. All rights reserved.
+	Copyright &copy; {{ date("Y") }} <a href="{{ URL::to('/') }}">Admin<strong>IEB</strong></a>. All rights reserved.
 </footer>

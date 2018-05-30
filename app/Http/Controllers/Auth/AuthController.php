@@ -92,11 +92,6 @@ class AuthController extends Controller {
 	 */
 	public function postRegister(Request $request)
 	{
-	    if($this->captchaCheck() == false)
-	    {
-	        return redirect()->back()->withErrors(['Sorry, Wrong Captcha'])->withInput();
-	    }
-
 		$validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -111,6 +106,7 @@ class AuthController extends Controller {
 		$user->first_name 		= $request->input('first_name');
 		$user->last_name 		= $request->input('last_name');
 		$user->email 			= $request->input('email');
+		$user->active			= 1;
 		$user->password 		= bcrypt($request->input('password'));
 
 		// GET GRAVATAR
@@ -126,7 +122,7 @@ class AuthController extends Controller {
 		// SAVE THE USER
 		if ($user->save()) {
 
-			$this->sendEmail($user);
+			//$this->sendEmail($user);
 	        $user_role = Role::whereName('user')->first();
 	        $user->assignRole($user_role);
 
@@ -135,12 +131,7 @@ class AuthController extends Controller {
 
 			$attemptsAllowed 		= 4;
 
-			return view('auth.activateAccount')
-			    ->with('email', $user->email)
-			    ->with('username', $user->name)
-			    ->with('attempts', $user->resent)
-			    ->with('remaining', ($attemptsAllowed - ($user->resent)));
-
+			return redirect('auth/login')->with('status', \Lang::get('auth.successActivated'));;
 		} else {
 
 			\Session::flash('message', \Lang::get('notCreated') );

@@ -42,11 +42,12 @@ class ProfilesController extends Controller {
     public function profile_validator(array $data)
     {
         return Validator::make($data, [
-            'location'          => 'required',
+            'location'          => '',
             'bio'               => '',
             'twitter_username'  => '',
             'career_title'      => '',
             'education'         => '',
+            'interno'           => ''
         ]);
     }
 
@@ -151,7 +152,7 @@ class ProfilesController extends Controller {
     {
         $user = $this->getUserByUsername($username);
 
-        $input = Input::only('location', 'bio', 'twitter_username', 'github_username', 'career_title', 'education');
+        $input = Input::only('location', 'bio', 'twitter_username', 'github_username', 'career_title', 'education', 'interno');
 
         $profile_validator = $this->profile_validator($request->all());
 
