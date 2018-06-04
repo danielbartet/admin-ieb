@@ -12,7 +12,7 @@ return [
 	// WELCOME PAGE MODULE
 	"welcomeTitle" 				=> "Welcome to Admin IEB",
 	"welcomeMessage" 			=> " Hi there :username, Your access level is ':levelaccess'. If you need upgrade your access comunicate with Joaquin",
-	"welcomeFooter" 			=> "&copy; 2016 LaraAdmin",
+	"welcomeFooter" 			=> "&copy; 2016 AdminIEB",
 
 	// TWITTER TIMELINE MODULE
 	"twitterCardTitleFollowers"	=>	"Twitter Followers",

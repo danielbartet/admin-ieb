@@ -31,8 +31,28 @@
                 {!! HTML::icon_link( "/dashboard", 'fa '.Lang::get('sidebar-nav.link_icon_dashboard'), "<span>".Lang::get('sidebar-nav.link_title_dashboard')."</span>", array('title' => Lang::get('sidebar-nav.link_title_dashboard'))) !!}
             </li>
 
-            <li>
-                {!! HTML::icon_link( "/calculadoras", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras'), "<span>".Lang::get('sidebar-nav.link_title_calculadoras')."</span>", array('title' => Lang::get('sidebar-nav.link_title_calculadoras'))) !!}
+            <li class="treeview">
+                {!! HTML::icon_link( "/calculadoras", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras'), "<span>".Lang::get('sidebar-nav.link_title_calculadoras')."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => Lang::get('sidebar-nav.link_title_calculadoras'))) !!}
+                <ul class="treeview-menu">
+                    <li>
+                        {!! HTML::icon_link( "/calculadoras", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras_view'), Lang::get('sidebar-nav.link_title_calculadoras_view'), array('title' => Lang::get('sidebar-nav.link_title_calculadoras_view'))) !!}
+                    </li>
+                    <li>
+                        {!! HTML::icon_link( "/calculadoras/create", 'fa '.Lang::get('sidebar-nav.link_icon_calculadora_create'), Lang::get('sidebar-nav.link_title_calculadora_create'), array('title' => Lang::get('sidebar-nav.link_title_calculadora_create'))) !!}
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                {!! HTML::icon_link( "/tipo_variable", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras'), "<span>".'Tipos de Variable'."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => 'Tipo Variables')) !!}
+                <ul class="treeview-menu">
+                    <li>
+                        {!! HTML::icon_link( "/tipo_variable", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras_view'), 'Show Tipo Variables', array('title' => 'Show Tipo Variables')) !!}
+                    </li>
+                    <li>
+                        {!! HTML::icon_link( "/tipo_variable/create", 'fa '.Lang::get('sidebar-nav.link_icon_calculadora_create'), 'Create Tipo Variable', array('title' => 'Create Tipo Variable')) !!}
+                    </li>
+                </ul>
             </li>
 
             @if (Auth::user()->profile)

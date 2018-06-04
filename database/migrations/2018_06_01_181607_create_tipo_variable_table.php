@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDataCalculadorasTable extends Migration
+class CreateTipoVariableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class CreateDataCalculadorasTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_calculadoras', function (Blueprint $table) {
+        Schema::create('tipo_variable', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('codigo');
-            $table->text('valor');
+            $table->text('tipo');
             $table->text('descripcion');
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ class CreateDataCalculadorasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('data_calculadoras');
+        Schema::drop('tipoVariable');
     }
 }

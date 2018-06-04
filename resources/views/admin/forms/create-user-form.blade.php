@@ -20,18 +20,18 @@
 	</div>
 
 	<div class="form-group has-feedback">
-		{!! Form::label('first_name', Lang::get('forms.create_user_label_email'), array('class' => 'col-md-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('first_name', Lang::get('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label margin-bottom-half')); !!}
       	<div class="input-group">
-        	{!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => Lang::get('forms.create_user_ph_email'))) !!}
-        	<label class="input-group-addon" for="first_name"><i class="fa fa-fw {{ Lang::get('forms.create_user_icon_email') }}" aria-hidden="true"></i></label>
+        	{!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => Lang::get('forms.create_user_ph_firstname'))) !!}
+        	<label class="input-group-addon" for="first_name"><i class="fa fa-fw {{ Lang::get('forms.create_user_icon_firstname') }}" aria-hidden="true"></i></label>
       	</div>
 	</div>
 
 	<div class="form-group has-feedback">
-		{!! Form::label('last_name', Lang::get('forms.create_user_label_email'), array('class' => 'col-md-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('last_name', Lang::get('forms.create_user_label_lastname'), array('class' => 'col-md-3 control-label margin-bottom-half')); !!}
       	<div class="input-group">
-        	{!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => Lang::get('forms.create_user_ph_email'))) !!}
-        	<label class="input-group-addon" for="last_name"><i class="fa fa-fw {{ Lang::get('forms.create_user_icon_email') }}" aria-hidden="true"></i></label>
+        	{!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => Lang::get('forms.create_user_ph_lastname'))) !!}
+        	<label class="input-group-addon" for="last_name"><i class="fa fa-fw {{ Lang::get('forms.create_user_icon_lastname') }}" aria-hidden="true"></i></label>
       	</div>
 	</div>
 

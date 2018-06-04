@@ -1,0 +1,45 @@
+{!! Form::model($variable, array('action' => array('CalculadorasManagementController@update', $variable->id), 'method' => 'PUT')) !!}
+
+	{!! csrf_field() !!}
+	{!! Form::hidden('tipo', 1) !!}
+	<div class="box box-primary">
+
+		<div class="box-header with-border">
+			<h3 class="box-title">{{ Lang::get('forms.edit-variable-admin-title') }}</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div>
+		</div>
+
+		<div class="box-body">
+
+			@include('admin.partials.return-messages')
+
+			<div class="form-group has-feedback">
+				{!! Form::label('valor', Lang::get('forms.label-valor') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+				<div class="col-lg-9">
+	              	<div class="input-group">
+	                	{!! Form::text('valor', old('valor'), array('id' => 'valor', 'class' => 'form-control', 'placeholder' => Lang::get('forms.ph-valor'))) !!}
+	                	<label class="input-group-addon" for="name"><i class="fa fa-fw {{ Lang::get('forms.username-icon') }}" aria-hidden="true"></i></label>
+	              	</div>
+				</div>
+			</div>
+			<div class="form-group has-feedback">
+				{!! Form::label('descripcion', Lang::get('forms.label-descripcion') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+				<div class="col-lg-9">
+	              	<div class="input-group">
+	                	{!! Form::text('descripcion', old('descripcion'), array('id' => 'descripcion', 'class' => 'form-control', 'placeholder' => Lang::get('forms.ph-descripcion'))) !!}
+	                	<label class="input-group-addon" for="descripcion"><i class="fa fa-fw {{ Lang::get('forms.username-icon') }} " aria-hidden="true"></i></label>
+	              	</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="box-footer">
+			{!! Form::button('<i class="fa fa-fw '.Lang::get('forms.submit-btn-icon').'" aria-hidden="true"></i> '.Lang::get('forms.submit-btn-text-variable'), array('class' => 'btn btn-primary btn-lg btn-block margin-bottom-1','type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#confirmSave', 'data-title' => Lang::get('profile.edit_user__modal_text_confirm_btn'), 'data-message' => Lang::get('profile.edit_user__modal_text_confirm_message'))) !!}
+		</div>
+
+	</div>
+
+{!! Form::close() !!}

@@ -101,6 +101,20 @@ Route::group(['middleware' => 'auth'], function () {
 	    'uses' 		=> 'UserController@index'
 	]);
 
+	// SHOW ALL DATA CALCULADORAS PAGE ROUTE
+	Route::resource('calculadoras', 'CalculadorasManagementController');
+	Route::get('/calculadoras', [
+		'as' 			=> 'calculadoras',
+		'uses' 			=> 'CalculadorasManagementController@showDataCalculadorasMainPanel'
+	]);
+
+	// SHOW ALL DATA CALCULADORAS PAGE ROUTE
+	Route::resource('tipo_variable', 'TipoVariablesManagementController');
+	Route::get('/tipo_variable', [
+		'as' 			=> 'tipo_variable',
+		'uses' 			=> 'TipoVariablesManagementController@showDataCalculadorasMainPanel'
+	]);
+
 	// USERS VIEWABLE PROFILE
 	Route::get('profile/{username}', [
 		'as' 		=> '{username}',

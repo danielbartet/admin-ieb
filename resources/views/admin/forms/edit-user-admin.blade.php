@@ -36,7 +36,7 @@
 
 			<div class="form-group has-feedback">
 				{!! Form::label('role_id', Lang::get('forms.label-userrole_id') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
-				<div class="col-lg-12">
+				<div class="col-lg-9">
 	              		{!! Form::select('role_id', array('0' => Lang::get('forms.option-label'), '1' => Lang::get('forms.option-user'), '2' => Lang::get('forms.option-editor'), '3' => Lang::get('forms.option-admin')), $access, array('class' => 'form-control')) !!}
 				</div>
 			</div>

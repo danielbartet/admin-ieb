@@ -10,7 +10,7 @@ class DataCalculadoras extends Model
     public $timestamps = true;
 
     public static $rules = [
-        'codigo'                        => 'required',
+        'tipo_id'                        => 'required',
         'valor'                         => 'required',
         'descripcion'                   => ''
     ];
@@ -19,4 +19,9 @@ class DataCalculadoras extends Model
     public static $messages = [
         'valor.required'           => 'Valor is required'
     ];
+
+    public function tipo()
+    {
+        return $this->belongsTo('App\Models\TipoVariable');
+    }
 }

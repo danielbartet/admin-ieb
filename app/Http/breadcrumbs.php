@@ -40,6 +40,12 @@ Breadcrumbs::register('users', function($breadcrumbs)
     $breadcrumbs->push(Lang::get('sidebar-nav.link_title_users'), '/users', ['icon' => Lang::get('sidebar-nav.link_icon_users')]);
 });
 
+// CALCULADORAS > SHOW CALCULADORAS
+Breadcrumbs::register('calculadoras', function($breadcrumbs)
+{
+    $breadcrumbs->push('calculadoras', '/calculadoras', ['icon' => 'fa-calculator']);
+});
+
 // DASHBOARD > USERS > EDIT USERS
 Breadcrumbs::register('edit_users', function($breadcrumbs)
 {

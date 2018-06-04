@@ -82,4 +82,15 @@ return [
 	'username-icon'						=>	'fa-user',
 	'useremail-icon'					=>	'fa-envelope-o',
 
+	// EDIT VARIABLE
+	'edit-variable-admin-title'				=>	'Edit Variable Information',
+
+	'label-valor'					=> 'Valor',
+	'ph-valor'						=> 'Valor',
+
+	'label-descripcion'					=> 'Descripcion',
+	'ph-descripcion'						=> 'Descripcion',
+
+	'submit-btn-text-variable'					=>	'Edit the Variable!',
+
 ];

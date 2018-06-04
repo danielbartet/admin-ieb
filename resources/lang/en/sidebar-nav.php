@@ -29,6 +29,12 @@ return [
 	'link_title_calculadoras'      => 'Calculadoras',
 	'link_icon_calculadoras'       => 'fa-calculator',
 
+	'link_title_calculadoras_view'   => 'Show variables',
+	'link_icon_calculadoras_view'    => 'fa-cog',
+
+	'link_title_calculadora_create'   => 'Create variable',
+	'link_icon_calculadora_create'    => 'fa-user-plus',
+
 	// USER PROFILE LINKS
 	'link_title_profile_top'    => 'User Profile',
 	'link_icon_profile_top'     => 'fa-user',

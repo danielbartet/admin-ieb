@@ -15,6 +15,8 @@ return [
 	// USER DASHBOARD PAGE
 	"dashboard-welcome"			=> ":username's Dashboard",
 
+	"calculadoras-title"		=> "Show variables"
+
 
 
 ];
