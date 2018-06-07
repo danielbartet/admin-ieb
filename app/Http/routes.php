@@ -108,11 +108,23 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses' 			=> 'CalculadorasManagementController@showDataCalculadorasMainPanel'
 	]);
 
-	// SHOW ALL DATA CALCULADORAS PAGE ROUTE
+	Route::get('/bonos', [
+		'as' 			=> 'bonos',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasBonos'
+	]);
+
+	// SHOW ALL TIPO VARIABLE PAGE ROUTE
 	Route::resource('tipo_variable', 'TipoVariablesManagementController');
 	Route::get('/tipo_variable', [
 		'as' 			=> 'tipo_variable',
 		'uses' 			=> 'TipoVariablesManagementController@showDataCalculadorasMainPanel'
+	]);
+
+	// SHOW ALL TIPO BONO PAGE ROUTE
+	Route::resource('tipo_bono', 'TipoBonoManagementController');
+	Route::get('/tipo_bono', [
+		'as' 			=> 'tipo_bono',
+		'uses' 			=> 'TipoBonoManagementController@showDataCalculadorasMainPanel'
 	]);
 
 	// USERS VIEWABLE PROFILE

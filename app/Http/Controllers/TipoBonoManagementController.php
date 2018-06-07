@@ -4,7 +4,6 @@ use App\Http\Controllers\Controller;
 use App\Logic\User\UserRepository;
 use App\Logic\User\CaptureIp;
 use App\Http\Requests;
-use App\Models\DataCalculadoras;
 use App\Models\TipoVariable;
 use App\Models\TipoBono;
 
@@ -21,7 +20,7 @@ use Validator;
 use Gravatar;
 use Input;
 
-class CalculadorasManagementController extends Controller {
+class TipoBonoManagementController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,13 +51,12 @@ class CalculadorasManagementController extends Controller {
 	 */
 	public function showDataCalculadorasMainPanel()
 	{
-        //$variables = \DB::table('data_calculadoras')->get();
-        $variables = DataCalculadoras::all();
-        $total_variables = \DB::table('data_calculadoras')->count();
+        $tipos = TipoBono::all();
+        $total_tipos = \DB::table('tipo_bono')->count();
 
-        return view('admin.pages.show-calculadoras', [
-        		'variables'	          => $variables,
-        		'total_variables'      => $total_variables
+        return view('admin.pages.show-tipos', [
+        		'tipos'	          => $tipos,
+        		'total_tipos'      => $total_tipos
         	]
         );
 	}
@@ -73,9 +71,7 @@ class CalculadorasManagementController extends Controller {
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'tipo'          	=> 'required',
-            'tipo_bono'          	=> '',
-            'valor'         	=> 'required',
+            'tipo'         	=> 'required',
             'description'          => ''
         ]);
     }
@@ -90,8 +86,6 @@ class CalculadorasManagementController extends Controller {
     {
         return Validator::make($data, [
             'tipo'          	=> 'required',
-            'tipo_bono'          	=> '',
-            'valor'         	=> 'required',
             'description'          => ''
         ]);
     }
@@ -107,10 +101,10 @@ class CalculadorasManagementController extends Controller {
         // GET THE VARIABLE
         $variable           = DataCalculadoras::find($id);
         
-        return view('admin.pages.edit-variable', [
-                'variable' => $variable
+        return view('admin.pages.edit-tipo-bono', [
+                'tipo' => $tipo
             ]
-        )->with('status', 'Successfully updated variable!');
+        )->with('status', 'Successfully updated tipo bono!');
 
     }
 
@@ -125,9 +119,7 @@ class CalculadorasManagementController extends Controller {
     {
 
         $rules = array(
-            'valor'              => 'required',
             'tipo'             => 'required',
-            'tipo_bono'          	=> '',
         );
 
         $validator = $this->validator($request->all(), $rules);
@@ -137,14 +129,12 @@ class CalculadorasManagementController extends Controller {
                 $request, $validator
             );
         } else {
-            $variable 				    = DataCalculadoras::find($id);
-            $variable->valor            = $request->input('valor');
-            $variable->tipo_id          = $request->input('tipo');
-            $variable->tipo_bono_id          = $request->input('tipo_bono');
-            $variable->descripcion      = $request->input('descripcion');
-            $variable->save();
+            $tipo 				    = TipoBono::find($id);
+            $tipo->tipo            = $request->input('tipo');
+            $tipo->descripcion      = $request->input('descripcion');
+            $tipo->save();
 
-            return redirect('/calculadoras')->with('status', 'Successfully updated the variable!');
+            return redirect('/tipo_bono')->with('status', 'Successfully updated the tipo bono!');
 
         }
     }
@@ -156,12 +146,7 @@ class CalculadorasManagementController extends Controller {
      */
     public function create()
     {
-        $tipos = TipoVariable::pluck('tipo','id')->prepend('Select Tipo','');
-        $tipos_bonos = TipoBono::pluck('tipo','id')->prepend('Select Tipo Bono','');
-        return view('admin.pages.create-variable', [
-            'tipos' => $tipos,
-            'tipos_bonos' => $tipos_bonos
-        ]);
+        return view('admin.pages.create-tipo-bono');
     }
 
     /**
@@ -182,18 +167,15 @@ class CalculadorasManagementController extends Controller {
         }
         else
         {
-            $tipo_bono = ($request->input('tipo_bono') == "") ? 2 : $request->input('tipo_bono');
-            $variable                   = new DataCalculadoras;
-            $variable->tipo_id          = $request->input('tipo');
-            $variable->tipo_bono_id     = $tipo_bono;
-            $variable->valor            = $request->input('valor');
-            $variable->descripcion      = $request->input('descripcion');
+            $tipo                   = new TipoBono;
+            $tipo->tipo            = $request->input('tipo');
+            $tipo->descripcion       = $request->input('descripcion');
             
             // SAVE THE USER
-            $variable->save();
+            $tipo->save();
 
             // THE SUCCESSFUL RETURN
-            return redirect('/calculadoras')->with('status', 'Successfully created variable!');
+            return redirect('/tipo_bono')->with('status', 'Successfully created tipo bono!');
 
         }
 
@@ -208,9 +190,9 @@ class CalculadorasManagementController extends Controller {
     public function show($id)
     {
     	// GET VARIABLE
-        $variable = DataCalculadoras::find($id);
+        $tipo = TipoBono::find($id);
 
-        return view('admin.pages.show-variable')->withVariable($variable);
+        return view('admin.pages.show-tipos-bonos')->withVariable($tipo);
     }
 
     /**
@@ -222,14 +204,10 @@ class CalculadorasManagementController extends Controller {
     public function destroy($id)
     {
         // DELETE VARIABLE
-        $variable = DataCalculadoras::find($id);
-        $variable->delete();
+        $tipo = TipoBono::find($id);
+        $tipo->delete();
 
-        return redirect('/calculadoras')->with('status', 'Successfully deleted the variable!');
-    }
-
-    public function showCalculadorasBonos(){
-        return view('admin.pages.calculadora-bono');
+        return redirect('/tipo_bono')->with('status', 'Successfully deleted the tipo bono!');
     }
 
 }

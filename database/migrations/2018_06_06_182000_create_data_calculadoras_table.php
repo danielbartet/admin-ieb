@@ -16,6 +16,8 @@ class CreateDataCalculadorasTable extends Migration
             $table->increments('id');
             $table->integer('tipo_id')->unsigned()->index();
             $table->foreign('tipo_id')->references('id')->on('tipo_variable');
+            $table->integer('tipo_bono_id')->unsigned()->index();
+            $table->foreign('tipo_bono_id')->references('id')->on('tipo_bono');
             $table->text('valor');
             $table->text('descripcion');
             $table->timestamps();

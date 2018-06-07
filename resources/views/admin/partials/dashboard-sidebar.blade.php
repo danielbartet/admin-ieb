@@ -55,6 +55,18 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                {!! HTML::icon_link( "/tipo_bono", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras'), "<span>".'Tipos de Bonos'."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => 'Tipo Bonos')) !!}
+                <ul class="treeview-menu">
+                    <li>
+                        {!! HTML::icon_link( "/tipo_bono", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras_view'), 'Show Tipo Bono', array('title' => 'Show Tipo Bono')) !!}
+                    </li>
+                    <li>
+                        {!! HTML::icon_link( "/tipo_bono/create", 'fa '.Lang::get('sidebar-nav.link_icon_calculadora_create'), 'Create Tipo Bono', array('title' => 'Create Tipo Bono')) !!}
+                    </li>
+                </ul>
+            </li>
+
             @if (Auth::user()->profile)
                 <li class="treeview">
                     {!! HTML::icon_link( "/profile/".Auth::user()->name, 'fa '.Lang::get('sidebar-nav.link_icon_profile_top'), "<span>".Lang::get('sidebar-nav.link_title_profile_top')."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => Lang::get('sidebar-nav.link_title_profile_top'))) !!}

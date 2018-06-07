@@ -9,6 +9,14 @@
 		</div>
 	</div>
 
+	<div class="form-group has-feedback" id="tipo_bono_wrapper" style="display: none">
+		{!! Form::label('tipo_bono', 'Tipo Bono' , array('class' => 'col-md-3 control-label margin-bottom-half')); !!}
+		<div class="input-group">
+        	{!! Form::select('tipo_bono', $tipos_bonos, NULL, array('class' => 'form-control')) !!}
+			<label class="input-group-addon" for="tipo"><i class="fa fa-fw fa-exclamation-circle" aria-hidden="true"></i></label>
+		</div>
+	</div>
+
 	<div class="form-group has-feedback">
 		{!! Form::label('valor', 'Ingrese Valor', array('class' => 'col-md-3 control-label margin-bottom-half')); !!}
       	<div class="input-group">

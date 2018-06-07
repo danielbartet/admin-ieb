@@ -11,6 +11,7 @@ class DataCalculadoras extends Model
 
     public static $rules = [
         'tipo_id'                        => 'required',
+        'tipo_bono_id'                        => '',
         'valor'                         => 'required',
         'descripcion'                   => ''
     ];
@@ -23,5 +24,10 @@ class DataCalculadoras extends Model
     public function tipo()
     {
         return $this->belongsTo('App\Models\TipoVariable');
+    }
+
+    public function tipo_bono()
+    {
+        return $this->belongsTo('App\Models\TipoBono');
     }
 }

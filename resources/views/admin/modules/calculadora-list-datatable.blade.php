@@ -20,6 +20,7 @@
 			<thead>
 				<tr class="success">
 					<th>Tipo de Variable</th>
+					<th>Tipo de Bono</th>
 					<th>Valor</th>
 					<th>Descripcion</th>
 					<th></th>
@@ -30,6 +31,7 @@
 		        @foreach ($variables as $a_variable)
 					<tr>
 						<td>{{$a_variable->tipo['tipo']}} </td>
+						<td>{{$a_variable->tipo_bono['tipo']}} </td>
 						<td>{{$a_variable->valor}} </td>
 						<td>{{$a_variable->descripcion}} </td>
 						<td width="10%"><a class="btn btn-info btn-block btn-flat" href="{{ URL::to('calculadoras/' . $a_variable->id . '/edit') }}">Edit this Variable</a></td>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipoVariableTable extends Migration
+class AddNullBonoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,8 @@ class CreateTipoVariableTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_variable', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('tipo');
-            $table->text('descripcion');
-            $table->timestamps();
+        Schema::table('data_calculadoras', function (Blueprint $table) {
+            $table->integer('tipo_bono_id')->unsigned()->nullable()->change();
         });
     }
 
@@ -27,6 +24,8 @@ class CreateTipoVariableTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tipo_variable');
+        Schema::table('data_calculadoras', function (Blueprint $table) {
+            //
+        });
     }
 }
