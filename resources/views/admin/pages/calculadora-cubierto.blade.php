@@ -25,51 +25,25 @@
                                             <input name="fechaVencimiento" style="padding-left:30px" type="customdate" value="" id="fechaVencimiento" class="datePicker  hasDatepicker form-control" required="required">
                                             <img style="float: right;margin-left: 5px;margin-top: -26px;position: absolute;" src="/img/calendar_icon.gif">
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>Comisión por operación en Acciones/Bonos</label>
-                                            <input name="comisionAccion" value="0,6" id="comisionAccion" class="autoNumericCon4Decimales porciento form-control" required="required" style="padding:5px 20px">
-                                            <span class="simboloLabel">&nbsp;%</span>
-                                        </div>
+                                        
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Precio de compra de la acción o bono</label>
                                             <input name="precioCompra" value="" id="precioCompra" class="autoNumericCon4Decimales form-control" required="required" style="padding:5px 20px ">
                                             <span class="simboloLabel">&nbsp;$&nbsp;</span>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>Comisión por operación en Opciones</label>
-                                            <input name="comisionOpcion" value="1,5" id="comisionOpcion" class="autoNumericCon4Decimales porciento form-control" required="required" style="padding:5px 20px ">
-                                            <span class="simboloLabel">&nbsp;%</span>
-                                        </div>
+                                        
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Prima del Call</label>
                                             <input name="primaCall" value="" id="primaCall" class="autoNumericCon4Decimales form-control" required="required" style="padding:5px 20px ">
                                             <span class="simboloLabel">&nbsp;$&nbsp;</span>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>Derecho de Mercado Acciones</label>
-                                            <input name="mercadoAccion" value="0,06" id="mercadoAccion" class="autoNumericCon4Decimales porciento form-control" required="required" style="padding:5px 20px">
-                                            <span class="simboloLabel">&nbsp;%</span>
-                                        </div>
+                                        
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Precio de ejercicio del call</label>
                                             <input name="strikeCall" value="" id="strikeCall" class="autoNumericCon4Decimales form-control" required="required" style="padding:5px 20px ">
                                             <span class="simboloLabel">&nbsp;$&nbsp;</span>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>Derecho de Mercado Opciones</label>
-                                            <input name="mercadoOpcion" value="0,15" id="mercadoOpcion" class="autoNumericCon4Decimales porciento form-control" required="required" style="padding:5px 20px ">
-                                            <span class="simboloLabel">&nbsp;%</span>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>Derecho de Bolsa Acciones</label>
-                                            <input name="bolsaAccion" value="0,0351" id="bolsaAccion" class="autoNumericCon4Decimales porciento form-control" required="required" style="padding:5px 20px ">
-                                            <span class="simboloLabel">&nbsp;%</span>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>Derecho de Bolsa Opciones</label>
-                                            <input name="bolsaOpcion" value="0,05" id="bolsaOpcion" class="autoNumericCon4Decimales porciento form-control" required="required" style="padding:5px 20px ">
-                                            <span class="simboloLabel">&nbsp;%</span>
-                                        </div>
+                                        
                                         <div class="col-xs-12 col-sm-6 form-group"></div>
                                         <aside class="col-xs-12 col-sm-6" style="float: right; margin-top: 10px">
                                             
