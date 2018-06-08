@@ -13,7 +13,8 @@
 
 	    </section>
 	    <section class="content">
-				@include('admin.modules.tipo-list-datatable')
+				@include('admin.partials.return-messages')
+				@include('admin.modules.tipo-bono-list-datatable')
 				@include('admin.modals.confirm-delete')
 				<div class="row margin-top-1">
 					<div class="col-md-3">

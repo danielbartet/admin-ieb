@@ -7,7 +7,7 @@ use App\Http\Requests;
 use App\Models\DataCalculadoras;
 use App\Models\TipoVariable;
 use App\Models\TipoBono;
-
+use App\Models\Cotizaciones;
 
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -222,14 +222,42 @@ class CalculadorasManagementController extends Controller {
     public function destroy($id)
     {
         // DELETE VARIABLE
-        $variable = DataCalculadoras::find($id);
-        $variable->delete();
-
-        return redirect('/calculadoras')->with('status', 'Successfully deleted the variable!');
+        try {
+            $variable = DataCalculadoras::find($id);
+            $variable->delete();
+            return redirect('/calculadoras')->with('status', 'Successfully deleted the variable!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect('/calculadoras')->with('anError', 'No se puede eliminar esta variable, esta en uso!');
+        }
     }
 
     public function showCalculadorasBonos(){
-        return view('admin.pages.calculadora-bono');
+        $cotizaciones = \DB::table('cotizaciones_tiemporeal')->where('tipo', 'BONOS')->get();
+        $tipoBonos = TipoBono::all();
+        $tipoCalculos = \DB::table('data_calculadoras')->where('tipo_id', '10')->get();
+        $monedas = \DB::table('data_calculadoras')->where('tipo_id', '9')->get();
+        return view('admin.pages.calculadora-bono', [
+            'cotizaciones' => $cotizaciones,
+            'tipoCalculos' => $tipoCalculos,
+            'tipoBonos' => $tipoBonos,
+            'monedas' => $monedas
+        ]);
+    }
+
+    public function showCalculadorasOpcion(){
+        return view('admin.pages.calculadora-opcion');
+    }
+
+    public function showCalculadorasFuturos(){
+        return view('admin.pages.calculadora-futuros');
+    }
+
+    public function showCalculadorasDivisas(){
+        return view('admin.pages.calculadora-divisas');
+    }
+
+    public function showCalculadorasCubierto(){
+        return view('admin.pages.calculadora-cubierto');
     }
 
 }

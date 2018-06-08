@@ -108,10 +108,33 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses' 			=> 'CalculadorasManagementController@showDataCalculadorasMainPanel'
 	]);
 
+	
+	//CALCULADORAS
 	Route::get('/bonos', [
 		'as' 			=> 'bonos',
 		'uses' 			=> 'CalculadorasManagementController@showCalculadorasBonos'
 	]);
+
+	Route::get('/opciones', [
+		'as' 			=> 'opciones',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasOpcion'
+	]);
+
+	Route::get('/futuros', [
+		'as' 			=> 'futuros',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasFuturos'
+	]);
+
+	Route::get('/divisas', [
+		'as' 			=> 'divisas',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasDivisas'
+	]);
+
+	Route::get('/cubierto', [
+		'as' 			=> 'cubierto',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasCubierto'
+	]);
+
 
 	// SHOW ALL TIPO VARIABLE PAGE ROUTE
 	Route::resource('tipo_variable', 'TipoVariablesManagementController');

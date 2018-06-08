@@ -16,7 +16,7 @@
     </div>
 	<div class="box-body table-responsive">
 
-		<table id="tipo_table" class="table table-striped table-hover table-condensed">
+		<table id="tipo_bono_table" class="table table-striped table-hover table-condensed">
 			<thead>
 				<tr class="success">
 					<th>Tipo</th>
@@ -27,17 +27,19 @@
 			</thead>
 			<tbody>
 		        @foreach ($tipos as $tipo)
-					<tr>
-						<td>{{$tipo->tipo}} </td>
-						<td>{{$tipo->descripcion}} </td>
-						<td width="10%"><a class="btn btn-info btn-block btn-flat" href="{{ URL::to('calculadoras/' . $tipo->id . '/edit') }}">Edit this Variable</a></td>
-						<td width="10%">
-						{!! Form::open(array('url' => 'tipo_bono/' . $tipo->id, 'class' => 'pull-right')) !!}
-							{!! Form::hidden('_method', 'DELETE') !!}
-							{!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> Delete this Tipo Bono', array('class' => 'btn btn-danger btn-block btn-flat','type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Tipo Bono', 'data-message' => 'Are you sure you want to delete this Tipo Bono ?')) !!}
-						{!! Form::close() !!}
-						</td>
-					</tr>
+					@if ($tipo->id <> 2)
+						<tr>
+							<td>{{$tipo->tipo}} </td>
+							<td>{{$tipo->descripcion}} </td>
+							<td width="10%"><a class="btn btn-info btn-block btn-flat" href="{{ URL::to('calculadoras/' . $tipo->id . '/edit') }}">Edit this Tipo Bono</a></td>
+							<td width="10%">
+							{!! Form::open(array('url' => 'tipo_bono/' . $tipo->id, 'class' => 'pull-right')) !!}
+								{!! Form::hidden('_method', 'DELETE') !!}
+								{!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> Delete this Tipo Bono', array('class' => 'btn btn-danger btn-block btn-flat','type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Tipo Bono', 'data-message' => 'Are you sure you want to delete this Tipo Bono ?')) !!}
+							{!! Form::close() !!}
+							</td>
+						</tr>
+					@endif
 		        @endforeach
 			</tbody>
 		</table>

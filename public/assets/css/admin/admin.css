@@ -28518,6 +28518,12 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
   content: "\f077";
 }
 
+.simboloLabel {
+  position: absolute;
+  margin-top: -25px;
+}
+
+
 /*# sourceMappingURL=weather-icons-mapping.css.map */
 
 /*# sourceMappingURL=admin.css.map */

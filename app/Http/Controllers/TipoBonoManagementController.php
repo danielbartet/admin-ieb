@@ -54,7 +54,7 @@ class TipoBonoManagementController extends Controller {
         $tipos = TipoBono::all();
         $total_tipos = \DB::table('tipo_bono')->count();
 
-        return view('admin.pages.show-tipos', [
+        return view('admin.pages.show-tipos-bonos', [
         		'tipos'	          => $tipos,
         		'total_tipos'      => $total_tipos
         	]
@@ -204,10 +204,13 @@ class TipoBonoManagementController extends Controller {
     public function destroy($id)
     {
         // DELETE VARIABLE
-        $tipo = TipoBono::find($id);
-        $tipo->delete();
-
-        return redirect('/tipo_bono')->with('status', 'Successfully deleted the tipo bono!');
+        try {
+            $tipo = TipoBono::find($id);
+            $tipo->delete();
+            return redirect('/tipo_bono')->with('status', 'Successfully deleted the tipo bono!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect('/tipo_bono')->with('anError', 'No se puede eliminar este tipo, esta en uso!');
+        }
     }
 
 }
