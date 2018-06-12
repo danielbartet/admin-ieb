@@ -63,7 +63,28 @@
                                             }
                                         </script>
                                     </form>
-                                    <div id="divResultado"></div>
+                                    <div id="divResultado" style="display: none">
+                                        <div class="col-xs-12">	
+                                            <h3>
+                                                Resultados
+                                            </h3>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">	
+                                            <p>Días al vencimiento
+                                            <strong id="vencimiento"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Tasa anual simple sin comisiones
+                                            <strong id="tasaAnualSin"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Tasa anual compuesta final
+                                            <strong id="tasaAnualFinal"></strong>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

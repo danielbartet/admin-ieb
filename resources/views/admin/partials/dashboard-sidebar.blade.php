@@ -35,6 +35,21 @@
                 {!! HTML::icon_link( "/calculadoras", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras'), "<span>".Lang::get('sidebar-nav.link_title_calculadoras')."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => Lang::get('sidebar-nav.link_title_calculadoras'))) !!}
                 <ul class="treeview-menu">
                     <li>
+                        {!! HTML::icon_link( "/bonos", 'fa fa-eye', 'Bonos', array('title' => 'Bonos')) !!}
+                    </li>
+                    <li>
+                        {!! HTML::icon_link( "/opciones", 'fa fa-eye', 'Opciones', array('title' => 'Opciones')) !!}
+                    </li>
+                    <li>
+                        {!! HTML::icon_link( "/futuros", 'fa fa-eye', 'Futuros', array('title' => 'Futuros')) !!}
+                    </li>
+                    <li>
+                        {!! HTML::icon_link( "/divisas", 'fa fa-eye', 'Monedas', array('title' => 'Monedas')) !!}
+                    </li>
+                    <li>
+                        {!! HTML::icon_link( "/cubierto", 'fa fa-eye', 'Cubierto', array('title' => 'Cubierto')) !!}
+                    </li>
+                    <li>
                         {!! HTML::icon_link( "/calculadoras", 'fa '.Lang::get('sidebar-nav.link_icon_calculadoras_view'), Lang::get('sidebar-nav.link_title_calculadoras_view'), array('title' => Lang::get('sidebar-nav.link_title_calculadoras_view'))) !!}
                     </li>
                     <li>

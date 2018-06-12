@@ -160,9 +160,31 @@
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 form-group">
-                                        <button id="calculadoraBonos" onclick="calcular(); return false;" class="btn btn-primary btn-block"> Calcular </button>
+                                        <input type="submit" id="calculadoraBonos" class="btn btn-primary btn-block" name="Submit" value="Calcular"/>
                                     </div>
                                 </form>
+                                <div id="divResultado" style="display: none">
+                                    <div class="col-xs-12">	
+                                        <h3>
+                                            Resultados
+                                        </h3>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">	
+                                        <p>Prima Call
+                                        <strong id="primaCall"></strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <p>Delta Call
+                                        <strong id="deltaCall"></strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <p>Gamma Call
+                                        <strong id="gammaCall"></strong>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -182,6 +204,9 @@
                         </div>
                     </div -->
                     <div id="resultadoCalculadoraBonos" class="col-xs-12"></div>
+
+
+                    
                 </div>
             </div>
         </section>
@@ -327,23 +352,29 @@
         );*/
     }
     function calcular() { 
-        formularioSerializado = $('#calculadoraBonosForm').serialize();
+        //formularioSerializado = $('#calculadoraBonosForm').serialize();
+        console.log("validate: "+$('#calculadoraBonosForm').validate());
+        $("#divResultado").show();
         if ($('#calculadoraBonosForm').validate()) {
-            document.getElementById('resultadoCalculadoraBonos').innerHTML = "<div class=\"general-box\" style=\"color:gray;padding-bottom:25px;text-align:center\"><img height=\"5\" width=\"100%\" src=\"/images/linea_formulario_calculadora.gif\"><br><img src=\"/images/ajax-loading.gif\" /><br><img height=\"5\" width=\"100%\" src=\"/images/linea_formulario_calculadora.gif\"></div>";
+            return false;
+            //document.getElementById('resultadoCalculadoraBonos').innerHTML = "<div class=\"general-box\" style=\"color:gray;padding-bottom:25px;text-align:center\"><img height=\"5\" width=\"100%\" src=\"/images/linea_formulario_calculadora.gif\"><br><img src=\"/images/ajax-loading.gif\" /><br><img height=\"5\" width=\"100%\" src=\"/images/linea_formulario_calculadora.gif\"></div>";
             //$('#resultadoCalculadoraBonos').load('/puente/actionCalculadoraBonosPublica!calcular.action?'+ formularioSerializado);
         }
+        return false;
     }
 
     $(document).ready(function() {
         completaListadoBonos();
         setEnabledCantidadFields();
-        
-        $("#calculadoraBonosForm").on("keypress", function(e){
-            if(e.keyCode == 13){
-                calcular();
-                return false;
-            }
+
+        $("#calculadoraBonosForm").on('submit', function (e) {
+            
+            $("#divResultado").show();
+            //stop form submission
+            e.preventDefault();
         });
+        
+    
     });
     </script>
 

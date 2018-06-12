@@ -53,7 +53,64 @@
                                             <button id="lanzamientoCubierto" class="btn-sm btn btn-primary btn-block" style="float: right;" onclick="calcularLanzamientoCubierto();return false;">Calcular</button>
                                         </aside>
                                     </form>
-                                    <div id="divResultado"></div>
+                                    <div id="divResultado" style="display: none">
+                                        <div class="col-xs-12">	
+                                            <h3>
+                                                Resultados
+                                            </h3>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">	
+                                            <p>Prima Call
+                                            <strong id="primaCall"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Gamma Call
+                                            <strong id="gammaCall"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Prima Put
+                                            <strong id="primaPut"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Gamma Put
+                                            <strong id="gammaPut"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Dias al Vencimiento
+                                            <strong id="vencimiento"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Delta Call
+                                            <strong id="deltaCall"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">	
+                                            <p>Elasticidad Call
+                                            <strong id="elastCall"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Delta Put
+                                            <strong id="deltaPut"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Elasticidad Put
+                                            <strong id="elastPut"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Volatilidad implícita(%) 
+                                            <strong id="volImplicita"></strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                
                                 </div>
                             </div>
                         </div>

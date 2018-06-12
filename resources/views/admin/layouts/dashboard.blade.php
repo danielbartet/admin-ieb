@@ -2,7 +2,8 @@
 <?php
 	$layoutBodybodyClasses = 'hold-transition skin-blue sidebar-mini fixed ';  // Can also add class 'fixed'
 ?>
-
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 @extends('admin.structure.master')
 
 {{-- Load Auth Layout Head --}}

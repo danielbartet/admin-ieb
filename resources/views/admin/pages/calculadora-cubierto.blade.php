@@ -50,7 +50,43 @@
                                             <button class="btn-sm btn btn-primary btn-block" id="lanzamientoCubierto" style="float: right;" onclick="calcularLanzamientoCubierto();return false;">CALCULAR</button>
                                         </aside>
                                     </form>
-                                    <div id="divResultado"></div>
+                                    <div id="divResultado" style="display: none">
+                                        <div class="col-xs-12">	
+                                            <h3>
+                                                Resultados
+                                            </h3>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">	
+                                            <p>Días hasta el vencimiento de la estrategia
+                                            <strong id="vencimiento"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Tasa Mensual (%)
+                                            <strong id="tasaMensual"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Cobertura(%)
+                                            <strong id="cobertura"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Tasa Efectiva (%)
+                                            <strong id="tasaEfectiva"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Tasa Anual (%)
+                                            <strong id="tasaAnual"></strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <p>Cotización de Cobertura ($)
+                                            <strong id="cotizacion"></strong>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
