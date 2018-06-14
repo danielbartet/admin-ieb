@@ -8,7 +8,7 @@
 	<div class="content-wrapper">
 	    <section class="content-header">
 			<h1>
-				Calculadora Opciones
+				Calculadora Cubierto
 			</h1>
 	    </section>
 	    <section class="content">
@@ -46,8 +46,7 @@
                                         
                                         <div class="col-xs-12 col-sm-6 form-group"></div>
                                         <aside class="col-xs-12 col-sm-6" style="float: right; margin-top: 10px">
-                                            
-                                            <button class="btn-sm btn btn-primary btn-block" id="lanzamientoCubierto" style="float: right;" onclick="calcularLanzamientoCubierto();return false;">CALCULAR</button>
+                                            <button class="btn-sm btn btn-primary btn-block" id="lanzamientoCubierto" style="float: right;">CALCULAR</button>
                                         </aside>
                                     </form>
                                     <div id="divResultado" style="display: none">
@@ -105,17 +104,44 @@
     <script type="text/javascript">
 
         var today = new Date();
-        var fechaLiq = new Date(today.setDate(today.getDate() + 2));
+        var fechaLiq = new Date(today.setDate(today.getDate() + 11));
         $("#fechaVencimiento").datepicker({format:'dd/mm/yyyy'}).datepicker('update', fechaLiq);
 
         function calcularLanzamientoCubierto() {
-            if ($('#formulario').validate()) {
-                var url = "/puente/calculadorasAction!calcularLanzamientoCubierto.action?"+ $('#formulario').serialize();
-                $("#divResultado").load(url);
-            }
-        };
-        $(document).ready( function() {
             
+        };
+
+        $(document).ready( function() {
+
+            $("#formulario").on('submit', function (e) {
+                //EN EL MAIL, CUAL SERIA EL ARANCEL
+                var myDate = $('#fechaVencimiento').datepicker('getDate');
+                var current = new Date();
+                var difference = Math.ceil((myDate - current) / (1000 * 60 * 60 * 24))
+                var fechaVencimiento = difference;
+                var precioCompra = $("#precioCompra").val();
+                var primaCall = $("#primaCall").val();
+                var strikeCall = $("#strikeCall").val();
+                var comiBonos = 0.6;
+                var comiOpciones = 1.5;
+                var derechoMercadoAcciones = 0.06;
+                var derechoMercadoOpciones = 0.15;
+                var derechoBolsaAcciones = 0.0351;
+                var derechoBolsaOpciones = 0.05;
+                var arancel = 0.5;
+                var iva = 0.21;
+                
+                var precioFinal = precioCompra + ( (1+derechoMercadoAcciones)*(1+arancel)) * (1+iva) - (((primaCall/((1+derechoMercadoOpciones)*(1+arancel))*(1+iva))));
+                var tasaDirecta = (strikeCall - precioFinal)/precioFinal;
+                var cobertura = (precioFinal - precioCompra)/precioCompra -1;
+                var tasaAnual = tasaDirecta * 360 / difference;
+                console.log("tasaAnual: "+tasaAnual);
+
+                $("#divResultado").show();
+                //stop form submission
+                e.preventDefault();
+            });
+
             $('#fechaVencimiento').data('customValidate', function() {
                 if (!mayorAHoy($("#fechaVencimiento").val())) {
                     return 'Ingrese una fecha mayor a la fecha actual.';

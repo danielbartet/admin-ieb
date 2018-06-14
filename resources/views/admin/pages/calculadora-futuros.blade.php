@@ -7,7 +7,7 @@
 	<div class="content-wrapper">
 	    <section class="content-header">
 			<h1>
-				Calculadora Opciones
+				Calculadora Futuros
 			</h1>
 	    </section>
 	    <section class="content">
