@@ -31,7 +31,7 @@
 						<tr>
 							<td>{{$tipo->tipo}} </td>
 							<td>{{$tipo->descripcion}} </td>
-							<td width="10%"><a class="btn btn-info btn-block btn-flat" href="{{ URL::to('calculadoras/' . $tipo->id . '/edit') }}">Edit this Tipo Bono</a></td>
+							<td width="10%"><a class="btn btn-info btn-block btn-flat" href="{{ URL::to('tipo_bono/' . $tipo->id . '/edit') }}">Edit this Tipo Bono</a></td>
 							<td width="10%">
 							{!! Form::open(array('url' => 'tipo_bono/' . $tipo->id, 'class' => 'pull-right')) !!}
 								{!! Form::hidden('_method', 'DELETE') !!}

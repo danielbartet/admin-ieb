@@ -98,7 +98,7 @@ class TipoVariablesManagementController extends Controller {
     public function edit($id)
     {
         // GET THE VARIABLE
-        $variable           = DataCalculadoras::find($id);
+        $tipo           = TipoVariable::find($id);
         
         return view('admin.pages.edit-tipo', [
                 'tipo' => $tipo

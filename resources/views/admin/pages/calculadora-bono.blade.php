@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="col-xs-12  form-group">
                                             <label class="col-xs-12">  
-                                                Ingrese el precio, la TIR o la paridad
+                                                Ingrese la TIR
                                             </label>
                                             <div class="col-xs-12 col-sm-3 col-md-5 col-lg-5 form-group">
                                                 <div id="wwgrp_tipoCalculoSelection" class="wwgrp">

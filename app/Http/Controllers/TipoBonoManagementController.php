@@ -99,7 +99,7 @@ class TipoBonoManagementController extends Controller {
     public function edit($id)
     {
         // GET THE VARIABLE
-        $variable           = DataCalculadoras::find($id);
+        $tipo           = TipoBono::find($id);
         
         return view('admin.pages.edit-tipo-bono', [
                 'tipo' => $tipo

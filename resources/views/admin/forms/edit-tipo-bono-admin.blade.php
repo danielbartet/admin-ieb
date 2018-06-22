@@ -1,4 +1,4 @@
-{!! Form::model($variable, array('action' => array('TipoBonoManagementController@update', $variable->id), 'method' => 'PUT')) !!}
+{!! Form::model($tipo, array('action' => array('TipoBonoManagementController@update', $tipo->id), 'method' => 'PUT')) !!}
 
 	{!! csrf_field() !!}
 	<div class="box box-primary">
