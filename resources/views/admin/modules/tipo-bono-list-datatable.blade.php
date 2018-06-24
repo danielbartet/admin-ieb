@@ -27,7 +27,7 @@
 			</thead>
 			<tbody>
 		        @foreach ($tipos as $tipo)
-					@if ($tipo->id <> 2)
+					
 						<tr>
 							<td>{{$tipo->tipo}} </td>
 							<td>{{$tipo->descripcion}} </td>
@@ -39,7 +39,7 @@
 							{!! Form::close() !!}
 							</td>
 						</tr>
-					@endif
+					
 		        @endforeach
 			</tbody>
 		</table>
