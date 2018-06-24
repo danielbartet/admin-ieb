@@ -44,3 +44,5 @@ node_modules/*
 ## IGNORE FOR NOW DUE TO GITHUB CONFLICTS
 README.md
 readme.md
+
+config/database.php
