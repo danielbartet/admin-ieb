@@ -26,9 +26,7 @@
                                             <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                                                 <select name="idCategoria" tabindex="1" id="idCategoria" class="form-control" onchange="completaListadoBonos()">
                                                 @foreach ($tipoBonos as $tipoBono)
-                                                    @if ($tipoBono->id <> 2)
                                                         <option value="{{$tipoBono->id}}">{{$tipoBono->tipo}}</option>
-                                                    @endif
                                                 @endforeach
                                                 </select>
                                             </div>
