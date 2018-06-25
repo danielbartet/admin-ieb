@@ -235,7 +235,7 @@ class CalculadorasManagementController extends Controller {
         $cotizaciones = \DB::table('cotizaciones_tiemporeal')->where('tipo', 'BONOS')->get();
         $tipoBonos = TipoBono::all();
         $tipoCalculos = \DB::table('data_calculadoras')->where('tipo_id', '10')->get();
-        $monedas = \DB::table('data_calculadoras')->where('tipo_id', '2')->get();
+        $monedas = \DB::table('data_calculadoras')->where('tipo_id', '3')->get();
         return view('admin.pages.calculadora-bono', [
             'cotizaciones' => $cotizaciones,
             'tipoCalculos' => $tipoCalculos,
