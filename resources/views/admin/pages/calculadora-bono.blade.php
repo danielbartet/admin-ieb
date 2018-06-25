@@ -80,9 +80,9 @@
                                                 <div id="wwgrp_tipoCalculoSelection" class="wwgrp">
                                                     <div id="wwctrl_tipoCalculoSelection" class="wwctrl">
                                                         <select name="tipoCalculoSelection" id="tipoCalculoSelection" onchange="setEnabledFields()" class="form-control">
-                                                        @foreach ($tipoCalculos as $tipo)
-                                                            <option value="{{$tipo->id}}">{{$tipo->valor}}</option>
-                                                        @endforeach
+                                                        
+                                                            <option value="TIR">TIR</option>
+                                                        
                                                         </select>
                                                     </div> 
                                                 </div> 
