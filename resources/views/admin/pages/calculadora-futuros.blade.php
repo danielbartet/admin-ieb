@@ -17,26 +17,18 @@
                         <div class="col-xs-12 col-md-9 col-sm-9 col-lg-9">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <form id="formulario" style="float: left">
+                                    <form id="formularioFuturo" style="float: left">
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Precio del spot </label>
                                             <input name="precioSpot" value="" id="precioSpot" class="autoNumericCon4Decimales form-control" required="required">
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>IVA(%) </label>
-                                            <input name="iva" value="21" id="iva" class="autoNumericCon4Decimales form-control" required="required">
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Precio del futuro </label>
                                             <input name="precioContrato" value="" id="precioContrato" class="autoNumericCon4Decimales form-control" required="required">
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group">
-                                            <label>Arancel(%) </label>
-                                            <input name="arancel" value="" id="arancel" class="autoNumericCon4Decimales form-control" required="required">
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Fecha de compra del futuro </label>
-                                            <input name="fechaCompra" style="padding-left:30px" type="customdate" value="06/06/2018" id="fechaCompra" required="required" class="hasDatepicker form-control">
+                                            <input name="fechaCompra" style="padding-left:30px" type="customdate" id="fechaCompra" required="required" class="hasDatepicker form-control">
                                             <img style="float: right;margin-left: 5px;margin-top: -26px;position: absolute;" src="/img/calendar_icon.gif">
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group">
@@ -46,22 +38,11 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Comisión de mercado(USD c/1000) </label>
-                                            <input name="comision" value="0,19" id="comision" class="autoNumericCon4Decimales form-control" required="required">
+                                            <input name="comision" value="0.19" id="comision" class="autoNumericCon4Decimales form-control" required="required">
                                         </div>
                                         <aside class="col-xs-12 col-sm-6" style="margin-top:24px">
-                                            
-                                            <button class="btn-sm btn btn-primary btn-block" style="float: right" id="lanzamientoCubierto" onclick="calcularFuturos();return false;">Calcular</button>
+                                            <button class="btn-sm btn btn-primary btn-block" style="float: right" id="calcFuturo">Calcular</button>
                                         </aside>
-
-                                        <script type="text/javascript">
-                                            function calcularFuturos() {
-                                                if ($('#formulario').validate()) {
-                                                    var url = "/puente/calculadorasAction!calcularFuturos.action?"
-                                                            + $('#formulario').serialize();
-                                                    $("#divResultado").load(url);
-                                                }
-                                            }
-                                        </script>
                                     </form>
                                     <div id="divResultado" style="display: none">
                                         <div class="col-xs-12">	
@@ -101,42 +82,36 @@
     @include('admin.structure.dashboard-scripts')
 
     <script type="text/javascript">
-        var changing = false;
+        
         $(document).ready( function() {
+            var current = new Date();
             
-            var today = new Date();
-            var fechaLiq = new Date(today.setDate(today.getDate() + 2));
-            $("#fechaCompra").datepicker({format:'dd/mm/yyyy'}).datepicker('update', fechaLiq);
-            $("#fechaExpiracion").datepicker({format:'dd/mm/yyyy'}).datepicker('update', fechaLiq);
+            $("#fechaCompra").datepicker({format:'dd/mm/yyyy'}).datepicker("setDate", current);
+            $("#fechaExpiracion").datepicker({format:'dd/mm/yyyy', startDate: current}).datepicker("setDate", current);
+            
+            $("#formularioFuturo").on('submit', function (e) {
+                var myDate = $('#fechaExpiracion').datepicker('getDate');
+                var difference = Math.ceil((myDate - current) / (1000 * 60 * 60 * 24))
+                var fechaVencimiento = difference;
+                
+                var precioSpot = $("#precioSpot").val();
+                var precioFuturo = $("#precioContrato").val();
+                var comision = parseFloat($("#comision").val()).toFixed(3);
+                var arancel = parseFloat(0.005).toFixed(3);
+                var iva = parseFloat(0.21).toFixed(3);
 
-            $('#fechaExpiracion').data('customValidate',function() {
-                    if (!mayorAOtroDate(
-                            $("#fechaExpiracion").val(), $(
-                                    "#fechaCompra").val())) {
-                        return 'Fecha de vencimiento debe ser mayor a la fecha de compra.';
-                    } else {
-                        if (!changing) {
-                            changing = true;
-                            $("#fechaCompra").trigger("change");
-                            changing = false;
-                        }
-                        return '';
-                    }
-            });
+                var precioFinal = (precioSpot * ( ((1+(arancel*100)/100) + (1+(comision*100)/100)) * (1+(iva*100)/100) )).toFixed(3);
+                
+                var tasaDirecta = (precioFinal/precioFuturo)-1;
+                var tasaAnual = tasaDirecta * (360 / difference);
 
-            $('#fechaCompra').data('customValidate',function() {
-                if (!mayorAOtroDate(
-                        $("#fechaExpiracion").val(), $(
-                                "#fechaCompra").val())) {
-                    return 'Fecha de vencimiento debe ser mayor a la fecha de compra.';
-                } else {
-                    if (!changing) {
-                        changing = true;
-                        $("#fechaExpiracion").trigger("change");
-                        changing = false;
-                    }
-                    return '';
-                }
+                $("#vencimiento").html(fechaVencimiento);
+                $("#tasaAnualSin").html(tasaDirecta.toFixed(2));
+                $("#tasaAnualFinal").html(tasaAnual.toFixed(2));
+
+                $("#divResultado").show();
+                //stop form submission
+                e.preventDefault();
             });
         });
     </script>

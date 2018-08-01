@@ -116,26 +116,35 @@
             $("#formulario").on('submit', function (e) {
                 //EN EL MAIL, CUAL SERIA EL ARANCEL
                 var myDate = $('#fechaVencimiento').datepicker('getDate');
+                
                 var current = new Date();
                 var difference = Math.ceil((myDate - current) / (1000 * 60 * 60 * 24))
                 var fechaVencimiento = difference;
                 var precioCompra = $("#precioCompra").val();
                 var primaCall = $("#primaCall").val();
                 var strikeCall = $("#strikeCall").val();
-                var comiBonos = 0.6;
-                var comiOpciones = 1.5;
-                var derechoMercadoAcciones = 0.06;
-                var derechoMercadoOpciones = 0.15;
-                var derechoBolsaAcciones = 0.0351;
-                var derechoBolsaOpciones = 0.05;
-                var arancel = 0.5;
-                var iva = 0.21;
+                var derechoMercadoAcciones = parseFloat(0.0008).toFixed(4);
+                var derechoMercadoOpciones = parseFloat(0.002).toFixed(4);
+                var derechoBolsaAcciones = parseFloat(0.0351).toFixed(4);
+                var derechoBolsaOpciones = parseFloat(0.05).toFixed(4);
+                var arancel = parseFloat(0.005).toFixed(4);
+                var iva = parseFloat(0.21).toFixed(4);
                 
-                var precioFinal = precioCompra + ( (1+derechoMercadoAcciones)*(1+arancel)) * (1+iva) - (((primaCall/((1+derechoMercadoOpciones)*(1+arancel))*(1+iva))));
+                var precioFinal = (precioCompra + ( (1+(derechoMercadoAcciones*100)/100)*(1+(arancel*100)/100)) * (1+(iva*100)/100) - (((primaCall/((1+(derechoMercadoOpciones*100)/100)*(1+(arancel*100)/100))*(1+(iva*100)/100))))).toFixed(4);
                 var tasaDirecta = (strikeCall - precioFinal)/precioFinal;
                 var cobertura = (precioFinal - precioCompra)/precioCompra -1;
-                var tasaAnual = tasaDirecta * 360 / difference;
-                console.log("tasaAnual: "+tasaAnual);
+                var tasaAnual = tasaDirecta * (360 / difference);
+                var tasaMensual = tasaDirecta * (30 / difference);
+                var tasaEfectiva = Math.pow(tasaDirecta, 360)/difference;
+                var cotizacion = precioCompra * (1-cobertura)
+                console.log("tasaAnual: "+precioFinal);
+
+                $("#vencimiento").html(fechaVencimiento);
+                $("#tasaMensual").html(tasaMensual.toFixed(2));
+                $("#cobertura").html(cobertura.toFixed(2));
+                $("#tasaEfectiva").html(tasaEfectiva);
+                $("#tasaAnual").html(tasaAnual.toFixed(2));
+                $("#cotizacion").html(cotizacion.toFixed(2));
 
                 $("#divResultado").show();
                 //stop form submission
