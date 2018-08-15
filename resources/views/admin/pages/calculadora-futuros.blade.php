@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Comisión de mercado(USD c/1000) </label>
-                                            <input name="comision" value="0.19" id="comision" class="autoNumericCon4Decimales form-control" required="required">
+                                            <input name="comision" value="0.0019" id="comision" class="autoNumericCon4Decimales form-control" required="required">
                                         </div>
                                         <aside class="col-xs-12 col-sm-6" style="margin-top:24px">
                                             <button class="btn-sm btn btn-primary btn-block" style="float: right" id="calcFuturo">Calcular</button>
@@ -96,18 +96,17 @@
                 
                 var precioSpot = $("#precioSpot").val();
                 var precioFuturo = $("#precioContrato").val();
-                var comision = parseFloat($("#comision").val()).toFixed(3);
-                var arancel = parseFloat(0.005).toFixed(3);
-                var iva = parseFloat(0.21).toFixed(3);
+                var comision = parseFloat($("#comision").val()).toFixed(5);
+                var arancel = parseFloat(0.00005).toFixed(5);
+                var iva = parseFloat(0.21).toFixed(5);
 
-                var precioFinal = (precioSpot * ( ((1+(arancel*100)/100) + (1+(comision*100)/100)) * (1+(iva*100)/100) )).toFixed(3);
-                
+                var precioFinal = (precioSpot * ( (((arancel*100)/100) + ((comision*100)/100)) * (1+(iva*100)/100) + 1)).toFixed(5);
                 var tasaDirecta = (precioFinal/precioFuturo)-1;
                 var tasaAnual = tasaDirecta * (360 / difference);
 
                 $("#vencimiento").html(fechaVencimiento);
-                $("#tasaAnualSin").html(tasaDirecta.toFixed(2));
-                $("#tasaAnualFinal").html(tasaAnual.toFixed(2));
+                $("#tasaAnualSin").html(tasaDirecta.toFixed(5));
+                $("#tasaAnualFinal").html(tasaAnual.toFixed(5));
 
                 $("#divResultado").show();
                 //stop form submission
