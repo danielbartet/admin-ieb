@@ -109,7 +109,7 @@
                 var multSumas = (sumaUno * sumaDos).toFixed(5);
 
                 var precioFinal = (precioSpot * (multSumas + 1)).toFixed(5);
-                var tasaDirecta = (precioFinal/precioFuturo)-1;
+                var tasaDirecta = (precioFuturo/precioFinal)-1;
                 var tasaAnual = tasaDirecta * (360 / difference);
 
                 console.log(comision);
