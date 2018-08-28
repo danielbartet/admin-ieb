@@ -71,11 +71,6 @@
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <p>Tasa Efectiva (%)
-                                            <strong id="tasaEfectiva"></strong>
-                                            </p>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6">
                                             <p>Tasa Anual (%)
                                             <strong id="tasaAnual"></strong>
                                             </p>
@@ -155,11 +150,10 @@
                 var cotizacion = precioCompra * (1-cobertura)
 
                 $("#vencimiento").html(fechaVencimiento);
-                $("#tasaMensual").html(tasaMensual.toFixed(2));
-                $("#cobertura").html(cobertura.toFixed(2));
-                $("#tasaEfectiva").html(tasaEfectiva);
-                $("#tasaAnual").html(tasaAnual.toFixed(2));
-                $("#cotizacion").html(cotizacion.toFixed(2));
+                $("#tasaMensual").html((tasaMensual*100).toFixed(2));
+                $("#cobertura").html((cobertura*100).toFixed(2));
+                $("#tasaAnual").html((tasaAnual*100).toFixed(2));
+                $("#cotizacion").html((cotizacion).toFixed(2));
 
                 $("#divResultado").show();
                 //stop form submission

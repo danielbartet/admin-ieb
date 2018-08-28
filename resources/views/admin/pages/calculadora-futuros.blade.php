@@ -107,27 +107,19 @@
                 var sumaUno = arancel + comision;
                 var sumaDos = 1 + iva;
                 var multSumas = (sumaUno * sumaDos).toFixed(5);
+                var sumaUno = parseFloat(multSumas) + 1;
 
-                var precioFinal = (precioSpot * (multSumas + 1)).toFixed(5);
+                var precioFinal = (precioSpot * sumaUno).toFixed(5);
                 var tasaDirecta = (precioFuturo/precioFinal)-1;
                 var tasaAnual = tasaDirecta * (360 / difference);
-
-                console.log(comision);
-                console.log(arancel);
-                console.log(iva);
-                
-                console.log(sumaUno);
-                console.log(sumaDos);
-                console.log(multSumas);
-                
 
                 console.log(precioFinal);
                 console.log(tasaDirecta);
                 console.log(tasaAnual);
 
                 $("#vencimiento").html(fechaVencimiento);
-                $("#tasaAnualSin").html(tasaDirecta.toFixed(5));
-                $("#tasaAnualFinal").html(tasaAnual.toFixed(5));
+                $("#tasaAnualSin").html((tasaDirecta*100).toFixed(2));
+                $("#tasaAnualFinal").html((tasaAnual*100).toFixed(2));
 
                 $("#divResultado").show();
                 //stop form submission
