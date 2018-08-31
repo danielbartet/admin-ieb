@@ -260,4 +260,30 @@ class CalculadorasManagementController extends Controller {
         return view('admin.pages.calculadora-cubierto');
     }
 
+    
+    public function showCalculadorasBonosFrame(){
+        $cotizaciones = \DB::table('cotizaciones_tiemporeal')->where('tipo', 'BONOS')->get();
+        $tipoBonos = TipoBono::all();
+        $tipoCalculos = \DB::table('data_calculadoras')->where('tipo_id', '10')->get();
+        $monedas = \DB::table('data_calculadoras')->where('tipo_id', '3')->get();
+        return view('admin.pages.calculadora-bono-frame', [
+            'cotizaciones' => $cotizaciones,
+            'tipoCalculos' => $tipoCalculos,
+            'tipoBonos' => $tipoBonos,
+            'monedas' => $monedas
+        ]);
+    }    
+
+    public function showCalculadorasFuturosFrame(){
+        return view('admin.pages.calculadora-futuros-frame');
+    }
+
+    public function showCalculadorasDivisasFrame(){
+        return view('admin.pages.calculadora-divisas-frame');
+    }
+
+    public function showCalculadorasCubiertoFrame(){
+        return view('admin.pages.calculadora-cubierto-frame');
+    }
+
 }

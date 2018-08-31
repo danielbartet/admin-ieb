@@ -136,6 +136,24 @@ Route::group(['middleware' => 'auth'], function () {
 	]);
 
 
+	Route::get('/bonos-frame', [
+		'as' 			=> 'bonos',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasBonosFrame'
+	]);
+	Route::get('/futuros-frame', [
+		'as' 			=> 'bonos',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasFuturosFrame'
+	]);
+	Route::get('/divisas-frame', [
+		'as' 			=> 'bonos',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasDivisasFrame'
+	]);
+	Route::get('/cubierto-frame', [
+		'as' 			=> 'bonos',
+		'uses' 			=> 'CalculadorasManagementController@showCalculadorasCubiertoFrame'
+	]);
+
+
 	// SHOW ALL TIPO VARIABLE PAGE ROUTE
 	Route::resource('tipo_variable', 'TipoVariablesManagementController');
 	Route::get('/tipo_variable', [
