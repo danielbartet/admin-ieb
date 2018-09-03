@@ -92,6 +92,25 @@ Route::get('home', function () {
     return redirect('/dashboard');
 });
 
+Route::group(['middleware'=> 'cors'], function () {
+	Route::get('/bonos-frame', [
+			'as'                    => 'bonos',
+			'uses'                  => 'CalculadorasManagementController@showCalculadorasBonosFrame'
+	]);
+	Route::get('/futuros-frame', [
+			'as'                    => 'bonos',
+			'uses'                  => 'CalculadorasManagementController@showCalculadorasFuturosFrame'
+	]);
+	Route::get('/divisas-frame', [
+			'as'                    => 'bonos',
+			'uses'                  => 'CalculadorasManagementController@showCalculadorasDivisasFrame'
+	]);
+	Route::get('/cubierto-frame', [
+			'as'                    => 'bonos',
+			'uses'                  => 'CalculadorasManagementController@showCalculadorasCubiertoFrame'
+	]);
+});	
+
 // USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {
 
@@ -133,24 +152,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/cubierto', [
 		'as' 			=> 'cubierto',
 		'uses' 			=> 'CalculadorasManagementController@showCalculadorasCubierto'
-	]);
-
-
-	Route::get('/bonos-frame', [
-		'as' 			=> 'bonos',
-		'uses' 			=> 'CalculadorasManagementController@showCalculadorasBonosFrame'
-	]);
-	Route::get('/futuros-frame', [
-		'as' 			=> 'bonos',
-		'uses' 			=> 'CalculadorasManagementController@showCalculadorasFuturosFrame'
-	]);
-	Route::get('/divisas-frame', [
-		'as' 			=> 'bonos',
-		'uses' 			=> 'CalculadorasManagementController@showCalculadorasDivisasFrame'
-	]);
-	Route::get('/cubierto-frame', [
-		'as' 			=> 'bonos',
-		'uses' 			=> 'CalculadorasManagementController@showCalculadorasCubiertoFrame'
 	]);
 
 

@@ -29,7 +29,8 @@ class Kernel extends HttpKernel {
         'guest' 			=> \App\Http\Middleware\RedirectIfAuthenticated::class,
         'currentUser' 		=> \App\Http\Middleware\CheckCurrentUser::class,
         'administrator' 	=> \App\Http\Middleware\Administrator::class,
-        'editor' 			=> \App\Http\Middleware\Editor::class,
+	'editor' 			=> \App\Http\Middleware\Editor::class,
+	'cors' => \App\Http\Middleware\Cors::class,
 	];
 
 }
