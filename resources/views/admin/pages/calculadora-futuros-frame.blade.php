@@ -62,7 +62,7 @@
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <p>Tasa directa
+                                            <p>Tasa directa con comisiones
                                             <strong id="tasaAnualSin"></strong>
                                             </p>
                                         </div>
