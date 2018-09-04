@@ -62,12 +62,12 @@
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <p>Tasa anual simple sin comisiones
+                                            <p>Tasa directa
                                             <strong id="tasaAnualSin"></strong>
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <p>Tasa anual compuesta final
+                                            <p>Tasa nominal anual
                                             <strong id="tasaAnualFinal"></strong>
                                             </p>
                                         </div>
