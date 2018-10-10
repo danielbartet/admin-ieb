@@ -8,6 +8,7 @@ use App\Models\DataCalculadoras;
 use App\Models\TipoVariable;
 use App\Models\TipoBono;
 use App\Models\Cotizaciones;
+use App\Models\Divisas;
 
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -253,7 +254,10 @@ class CalculadorasManagementController extends Controller {
     }
 
     public function showCalculadorasDivisas(){
-        return view('admin.pages.calculadora-divisas');
+        $divisas = Divisas::all();
+        return view('admin.pages.calculadora-divisas',[
+            'monedas' => $divisas
+        ]);
     }
 
     public function showCalculadorasCubierto(){
@@ -279,7 +283,11 @@ class CalculadorasManagementController extends Controller {
     }
 
     public function showCalculadorasDivisasFrame(){
-        return view('admin.pages.calculadora-divisas-frame');
+        $divisas = Divisas::all();
+        //dd($divisas[0]);
+        return view('admin.pages.calculadora-divisas-frame',[
+            'monedas' => $divisas
+        ]);
     }
 
     public function showCalculadorasCubiertoFrame(){

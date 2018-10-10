@@ -24,9 +24,9 @@
                                             </label>
                                             <select name="idDivisaOrigen" id="divisaOrigen" required="required" class="form-control">
                                                 <option value="">Seleccione una divisa o metal precioso</option>
-                                                <option value="DIVISA_MGA">Ariary malgache</option>
-                                                <option value="DIVISA_THB">Baht tailandés</option>
-                                                <option value="DIVISA_PAB">Balboa panameño</option>
+                                                @foreach($monedas as $moneda)
+                                                    <option value="{{$moneda->simbolo}}">{{$moneda->nombre}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group">
@@ -39,9 +39,9 @@
                                             </label>
                                             <select name="idDivisaDestino" id="divisaDestino" required="required" class="form-control">
                                                 <option value="">Seleccione una divisa o metal precioso</option>
-                                                <option value="DIVISA_MGA">Ariary malgache</option>
-                                                <option value="DIVISA_THB">Baht tailandés</option>
-                                                <option value="DIVISA_PAB">Balboa panameño</option>
+                                                @foreach($monedas as $moneda)
+                                                    <option value="{{$moneda->simbolo}}">{{$moneda->nombre}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group" style="margin-top: 25px">                                            
