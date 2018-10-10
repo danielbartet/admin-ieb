@@ -62,12 +62,12 @@
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <p>Tasa anual simple sin comisiones
+                                            <p>Tasa directa con comisiones
                                             <strong id="tasaAnualSin"></strong>
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <p>Tasa anual compuesta final
+                                            <p>Tasa nominal anual
                                             <strong id="tasaAnualFinal"></strong>
                                             </p>
                                         </div>
@@ -78,8 +78,9 @@
                         
                     </div>
                 </div>
-                {{!! HTML::script('/assets/js/admin/admin.js', array('type' => 'text/javascript')) !!}
+                {!! HTML::script('/assets/js/admin/admin.js', array('type' => 'text/javascript')) !!}
 {!! HTML::script('/assets/js/admin/finance.js', array('type' => 'text/javascript')) !!}
+{!! HTML::script('/assets/js/admin/iframeResizer.contentWindow.min.js', array('type' => 'text/javascript')) !!}
 
 
     <script type="text/javascript">

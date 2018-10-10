@@ -84,7 +84,7 @@
             
 {!! HTML::script('/assets/js/admin/admin.js', array('type' => 'text/javascript')) !!}
 {!! HTML::script('/assets/js/admin/finance.js', array('type' => 'text/javascript')) !!}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+{!! HTML::script('/assets/js/admin/iframeResizer.contentWindow.min.js', array('type' => 'text/javascript')) !!}
 
 @section('template_scripts')
 
