@@ -45,8 +45,8 @@
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>A Divisa
                                             </label>
-                                            <input list="divisaDestino" name="divisaDestino" id="destinoVal" class="form-control" placeholder="Seleccione Divisa...">
-                                            <datalist name="idDivisaDestino" id="divisaDestino" required="required">
+                                            <input list="divisaDestino" id="destinoVal" class="form-control" placeholder="Seleccione Divisa...">
+                                            <datalist id="divisaDestino">
                                                 @foreach($monedas as $moneda)
                                                     <option id="{{$moneda->simbolo}}" value="{{$moneda->nombre}}" data-cotizacion="{{$moneda->cotizacion}}"></option>
                                                 @endforeach
@@ -94,6 +94,7 @@
 
 <script type="text/javascript">
 
+    var divisas = {!! $monedas !!};
     $(document).ready(function() {
         
         $("#divisaOrigen").click(function(){
@@ -104,20 +105,31 @@
             $(this).next().show();
             $(this).next().hide();
         });
-        
     })
+
 
     function calcularConversorMonedas() {
                                             
         var origenVal = $('#origenVal').val();
         var destinoVal = $('#destinoVal').val();
+        var cantidad = $('#cantidad').val();
 
-        var option = $('#divisaOrigen option').filter(function() {
-            console.log(this.value);
-            return this.value == origenVal;
+        var origen = divisas.filter(function(div) {            
+            return div.nombre.trim() == origenVal.trim();
         });
 
-        console.log(option);
+        var destino = divisas.filter(function(div) {            
+            return div.nombre.trim() == destinoVal.trim();
+        });
+        
+        var total = ((destino[0].cotizacion/origen[0].cotizacion)*cantidad).toFixed(2);
+
+        $("#valorOrigen").html(cantidad);
+        $("#paisOrigen").html(origen[0].nombre);
+        $("#valorDestino").html(total);
+        $("#paisDestino").html(destino[0].nombre);
+        $("#divResultado").show();
+
     }
 
 </script>

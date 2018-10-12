@@ -284,7 +284,6 @@ class CalculadorasManagementController extends Controller {
 
     public function showCalculadorasDivisasFrame(){
         $divisas = Divisas::all();
-        //dd($divisas[0]);
         return view('admin.pages.calculadora-divisas-frame',[
             'monedas' => $divisas
         ]);

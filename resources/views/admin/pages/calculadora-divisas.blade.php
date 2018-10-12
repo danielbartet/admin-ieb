@@ -22,12 +22,12 @@
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>De Divisa
                                             </label>
-                                            <select name="idDivisaOrigen" id="divisaOrigen" required="required" class="form-control">
-                                                <option value="">Seleccione una divisa o metal precioso</option>
+                                            <input list="divisaOrigen" id="origenVal" class="form-control" placeholder="Seleccione Divisa...">
+                                            <datalist id="divisaOrigen">
                                                 @foreach($monedas as $moneda)
-                                                    <option value="{{$moneda->simbolo}}">{{$moneda->nombre}}</option>
+                                                    <option id="{{$moneda->simbolo}}" value="{{$moneda->nombre}}" data-cotizacion="{{$moneda->cotizacion}}"></option>
                                                 @endforeach
-                                            </select>
+                                            </datalist>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>Cantidad
@@ -37,26 +37,18 @@
                                         <div class="col-xs-12 col-sm-6 form-group">
                                             <label>A Divisa
                                             </label>
-                                            <select name="idDivisaDestino" id="divisaDestino" required="required" class="form-control">
-                                                <option value="">Seleccione una divisa o metal precioso</option>
+                                            <input list="divisaDestino" id="destinoVal" class="form-control" placeholder="Seleccione Divisa...">
+                                            <datalist id="divisaDestino">
                                                 @foreach($monedas as $moneda)
-                                                    <option value="{{$moneda->simbolo}}">{{$moneda->nombre}}</option>
+                                                    <option id="{{$moneda->simbolo}}" value="{{$moneda->nombre}}" data-cotizacion="{{$moneda->cotizacion}}"></option>
                                                 @endforeach
-                                            </select>
+                                            </datalist>   
                                         </div>
                                         <div class="col-xs-12 col-sm-6 form-group" style="margin-top: 25px">                                            
                                             <button class="btn-sm btn btn-primary btn-block" id="lanzamientoCubierto" onclick="calcularConversorMonedas();return false;">CALCULAR</button>
                                         </div>
                                     </div>
-                                    <script type="text/javascript">
-                                        function calcularConversorMonedas() {
-                                            if ($('#formulario').validate()) {
-                                                var url = "/puente/conversorMonedasAction!calcularConversorMonedas.action?"
-                                                        + $('#formulario').serialize();
-                                                $("#divResultado").load(url);
-                                            }
-                                        }
-                                    </script>
+                                    
                                 </form>
                                 <div id="divResultado" style="display: none">
                                     <div class="col-xs-12">	
@@ -91,5 +83,47 @@
     @include('admin.structure.dashboard-scripts')
 
 @endsection
+
+<script type="text/javascript">
+
+var divisas = {!! $monedas !!};
+$(document).ready(function() {
+    
+    $("#divisaOrigen").click(function(){
+        $(this).next().show();
+        $(this).next().hide();
+    });
+    $("#divisaDestino").click(function(){
+        $(this).next().show();
+        $(this).next().hide();
+    });
+})
+
+
+function calcularConversorMonedas() {
+                                        
+    var origenVal = $('#origenVal').val();
+    var destinoVal = $('#destinoVal').val();
+    var cantidad = $('#cantidad').val();
+
+    var origen = divisas.filter(function(div) {            
+        return div.nombre.trim() == origenVal.trim();
+    });
+
+    var destino = divisas.filter(function(div) {            
+        return div.nombre.trim() == destinoVal.trim();
+    });
+    
+    var total = ((destino[0].cotizacion/origen[0].cotizacion)*cantidad).toFixed(2);
+
+    $("#valorOrigen").html(cantidad);
+    $("#paisOrigen").html(origen[0].nombre);
+    $("#valorDestino").html(total);
+    $("#paisDestino").html(destino[0].nombre);
+    $("#divResultado").show();
+
+}
+
+</script>
 
 
