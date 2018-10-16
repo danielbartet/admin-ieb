@@ -283,9 +283,20 @@ class CalculadorasManagementController extends Controller {
     }
 
     public function showCalculadorasDivisasFrame(){
+	$patron = [‘/à|á|â|ã|ä|å|æ|ª/’ => ‘a’,
+		‘/À|Á|Â|Ã|Ä|Å|Æ/’ => ‘A’,
+		‘/è|é|ê|ë|ð/’ => ‘e’,
+		‘/È|É|Ê|Ë|Ð/’ => ‘E’,
+		‘/ì|í|î|ï/’ => ‘i’,
+		‘/Ì|Í|Î|Ï/’ => ‘I’,
+		‘/ò|ó|ô|õ|ö|ø|º/’ => ‘o’,
+		‘/Ò|Ó|Ô|Õ|Ö|Ø/’ => ‘o’,
+		‘/ù|ú|û|ü/’ => ‘u’,
+		‘/Ù|Ú|Û|Ü/’ => ‘U’]
         $divisas = Divisas::orderBy('nombre', 'asc')->get();
         return view('admin.pages.calculadora-divisas-frame',[
-            'monedas' => $divisas
+            'monedas' => $divisas,
+	    'patron' => $patron
         ]);
     }
 
