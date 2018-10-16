@@ -33,7 +33,7 @@
                                             <input list="divisaOrigen" id="origenVal" class="form-control" placeholder="Seleccione Divisa...">
                                             <datalist id="divisaOrigen">
                                                 @foreach($monedas as $moneda)
-                                                    <option id="{{$moneda->simbolo}}" value="{{ preg_replace("/[^A-Za-z0-9 ]/", '',iconv('UTF-8', 'ASCII//TRANSLIT', $moneda->nombre)) }}" data-cotizacion="{{$moneda->cotizacion}}"></option>
+                                                    <option id="{{$moneda->simbolo}}" value="{{ preg_replace(array_keys($patron),array_values($patron), $moneda->nombre) }}" data-cotizacion="{{$moneda->cotizacion}}"></option>
                                                 @endforeach
                                             </datalist>
                                         </div>
