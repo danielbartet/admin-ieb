@@ -292,7 +292,7 @@ class CalculadorasManagementController extends Controller {
 		‘/ò|ó|ô|õ|ö|ø|º/’ => ‘o’,
 		‘/Ò|Ó|Ô|Õ|Ö|Ø/’ => ‘o’,
 		‘/ù|ú|û|ü/’ => ‘u’,
-		‘/Ù|Ú|Û|Ü/’ => ‘U’]
+		‘/Ù|Ú|Û|Ü/’ => ‘U’];
         $divisas = Divisas::orderBy('nombre', 'asc')->get();
         return view('admin.pages.calculadora-divisas-frame',[
             'monedas' => $divisas,
