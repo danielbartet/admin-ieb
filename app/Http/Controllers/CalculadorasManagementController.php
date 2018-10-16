@@ -283,7 +283,7 @@ class CalculadorasManagementController extends Controller {
     }
 
     public function showCalculadorasDivisasFrame(){
-        $divisas = Divisas::all();
+        $divisas = Divisas::orderBy('nombre', 'asc')->get();
         return view('admin.pages.calculadora-divisas-frame',[
             'monedas' => $divisas
         ]);
