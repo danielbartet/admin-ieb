@@ -293,4 +293,12 @@ class CalculadorasManagementController extends Controller {
         return view('admin.pages.calculadora-cubierto-frame');
     }
 
+    public function getDivisa(Request $request){
+        $divisaIn = Divisas::where('nombre','=',$request->input('divisaIn'))->first();
+        $divisaOut = Divisas::where('nombre','=',$request->input('divisaOut'))->first();
+
+        $divisaVal = ['in'=>$divisaIn,'out'=> $divisaOut];
+        return json_encode($divisaVal);
+    }
+
 }

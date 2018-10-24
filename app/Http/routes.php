@@ -109,6 +109,11 @@ Route::group(['middleware'=> 'cors'], function () {
 			'as'                    => 'bonos',
 			'uses'                  => 'CalculadorasManagementController@showCalculadorasCubiertoFrame'
 	]);
+
+	Route::get('/getDivisa', [
+		'as'                    => 'divisa',
+		'uses'                  => 'CalculadorasManagementController@getDivisa'
+	]);
 });	
 
 // USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
