@@ -87,18 +87,6 @@
 <script type="text/javascript">
 
 var divisas = {!! $monedas !!};
-$(document).ready(function() {
-    
-    $("#divisaOrigen").click(function(){
-        $(this).next().show();
-        $(this).next().hide();
-    });
-    $("#divisaDestino").click(function(){
-        $(this).next().show();
-        $(this).next().hide();
-    });
-})
-
 
 function calcularConversorMonedas() {
                                         
@@ -116,29 +104,23 @@ function calcularConversorMonedas() {
     
 
     $.ajax({
-            type: 'GET',
-            url: 'getDivisa',
-            data: {'divisaIn':origenVal, 'divisaOut':destinoVal},
-            success: function(data) {
-                console.log(JSON.parse(data));
-                dataJson = JSON.parse(data);
-                var total = ((dataJson.in.cotizacion/dataJson.out.cotizacion)*cantidad).toFixed(2);
-                $("#valorOrigen").html(cantidad);
-                $("#paisOrigen").html(dataJson.in.nombre);
-                $("#valorDestino").html(total);
-                $("#paisDestino").html(dataJson.out.nombre);
-                $("#divResultado").show();
-            },
-            error: function(xhr) { // if error occured
-                
-            }
-        });
-
-    $("#valorOrigen").html(cantidad);
-    $("#paisOrigen").html(origen[0].nombre);
-    $("#valorDestino").html(total);
-    $("#paisDestino").html(destino[0].nombre);
-    $("#divResultado").show();
+        type: 'GET',
+        url: 'getDivisa',
+        data: {'divisaIn':origenVal, 'divisaOut':destinoVal},
+        success: function(data) {
+            console.log(JSON.parse(data));
+            dataJson = JSON.parse(data);
+            var total = ((dataJson.in.cotizacion/dataJson.out.cotizacion)*cantidad).toFixed(2);
+            $("#valorOrigen").html(cantidad);
+            $("#paisOrigen").html(dataJson.in.nombre);
+            $("#valorDestino").html(total);
+            $("#paisDestino").html(dataJson.out.nombre);
+            $("#divResultado").show();
+        },
+        error: function(xhr) {
+            
+        }
+    });
 
 }
 
