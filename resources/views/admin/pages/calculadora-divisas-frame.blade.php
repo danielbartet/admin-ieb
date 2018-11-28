@@ -116,7 +116,7 @@
             data: {'divisaIn':origenVal, 'divisaOut':destinoVal},
             success: function(data) {
                 dataJson = JSON.parse(data);
-                var total = ((dataJson.in.cotizacion/dataJson.out.cotizacion)*cantidad).toFixed(2);
+                var total = ((dataJson.out.cotizacion/dataJson.in.cotizacion)*cantidad).toFixed(2);
                 $("#valorOrigen").html(cantidad);
                 $("#paisOrigen").html(dataJson.in.nombre);
                 $("#valorDestino").html(total);
